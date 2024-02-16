@@ -1,5 +1,6 @@
-TARGET = iphone:11.2:11.0
-ARCHS = arm64
+THEOS_DEVICE_IP = 192.168.31.158
+TARGET := iphone:clang:14.5
+ARCHS = arm64e
 
 include $(THEOS)/makefiles/common.mk
 
@@ -11,3 +12,7 @@ include $(THEOS_MAKE_PATH)/tweak.mk
 
 after-install::
 	install.exec "killall -9 AppStore"
+
+clean::
+	rm -rf .theos
+	rm -rf packages
